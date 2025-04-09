@@ -13,7 +13,7 @@ public:
   Logger getLogger();
   void setLogger(Logger logger);
 private:
-  Logger logger;
+  Logger _logger;
 };
 
 #endif
