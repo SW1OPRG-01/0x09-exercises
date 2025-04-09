@@ -82,9 +82,47 @@ int main (int argc, char* argv[]) {
 ## Exercise 0x20 — Filtering
 Now it's time to implement some additional business logic in our classes.
 
-Start by adding the header and implementation file for the `DateTime` class into your project (they're available on Brightspace). The class is a simple wrapper around a standard library, that allows to print Unix timestamps in a human-readable format.
+Start by adding the header and implementation file for the `DateTime` class into your project. 
 
-Add a new function to called `filter(int from, int to)` to the `Logger` class (and remember to update your diagrams) that iterates (I'll recommend a `for`-loop) over all messages and prints out activities whose timestamps are within the period as defined by `from` and `to`. Use the `DateTime` class to convert the integer value to a datetime string.
+```cpp
+#ifndef DATETIME_H
+#define DATETIME_H
+
+#include <ctime>
+#include <string>
+
+class DateTime {
+  public:
+    DateTime(int timestamp);
+    std::string getString();
+    int getTimestamp();
+  private:
+    std::time_t timestamp;
+};
+
+#endif
+```
+
+```cpp
+#include "datetime.h"
+
+DateTime::DateTime(int timestamp) : timestamp(timestamp) { }
+
+std::string DateTime::getString() {
+  std::tm* timeInfo = std::gmtime(&timestamp);
+  char out[20];
+  std::strftime(out, sizeof(out), "%Y-%m-%d %H:%M:%S", timeInfo);
+  return out;
+}
+
+int DateTime::getTimestamp() {
+  return timestamp;
+}
+```
+
+The class is a simple wrapper around a standard library, that allows to print Unix timestamps in a human-readable format.
+
+Add a new method `filter(int from, int to)` to the `Logger` class (and remember to update your diagrams) that iterates (we recommend a `for`-loop) over all messages and prints out activities whose timestamps are within the period as defined by `from` and `to`. Use the `DateTime` class to convert the integer value `timestamp` in `Activity` to a human-readable datetime string.
 
 ##### Example output, where `from` is 1711936658 and `to` is 1712331675 
 ```
