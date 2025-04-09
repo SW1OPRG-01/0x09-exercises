@@ -41,7 +41,12 @@ Based on the UML diagram below:
 
 Implement the following in C++:
 - The `Logger` class
+  - `getLogs()` returns all activities
+  - `log(activity)` pushes an `Activity` object to the back of the list of activities
+  - `getNumberOfActivities()` returns the total number of activities
 - The `Activity` class
+  - `validate(string)` checks, that the argument is a string that only contains numeric characters
+  - `typeAsString(type)` converts a `Type` enumeration value to a string
 - The `Type` enum
 
 > **_Reflection_**
@@ -50,10 +55,10 @@ Implement the following in C++:
 > - _What do the cardinalities (the numbers next to the lines between classes) tell you about how the classes are connected?_
 > - _Write down your thoughts or discuss them with your group._
 
-Now that we have an UML representation of the `TeleCentral` class, it's time to implement some classes defined in UML.
+Now that we have an UML representation of the TeleCentral system, it's time to implement the classes as defined in the UML and the class descriptions.
 
 ## Exercise 0x10 — Testing our implementation
-Now it's time to check that everything is working according to spec. Implement a program (a `main()` function) and use add the test data to your project (available on Brightspace in a header file `activity-log.h`) to test your classes.
+Now it's time to check that everything is working according to spec. Implement a program (a `main()` function) and use add the test data to your project (available on Brightspace in a header file `data-log.h`) to test your classes.
 
 ```cpp
 #include <iostream>
