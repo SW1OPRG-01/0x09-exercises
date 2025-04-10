@@ -57,7 +57,7 @@ Implement the following in C++:
 
 Now that we have an UML representation of the TeleCentral system, it's time to implement the classes as defined in the UML and the class descriptions.
 
-## Exercise 0x10 — Testing our implementation
+## Exercise 0x10 — Implementation test
 Now it's time to check that everything is working according to spec. Implement a program (a `main()` function) and use add the test data to your project (available on Brightspace in a header file `data-log.h`) to test your classes.
 
 ```cpp
@@ -120,9 +120,15 @@ int DateTime::getTimestamp() {
 }
 ```
 
-The class is a simple wrapper around a standard library, that allows to print Unix timestamps in a human-readable format.
+The DateTime class is a simple wrapper around a standard library. It makes it easy to convert and print Unix timestamps in a human-readable format.
 
-Add a new method `filter(int from, int to)` to the `Logger` class (and remember to update your diagrams) that iterates (we recommend a `for`-loop) over all messages and prints out activities whose timestamps are within the period as defined by `from` and `to`. Use the `DateTime` class to convert the integer value `timestamp` in `Activity` to a human-readable datetime string.
+Your task is to add a new method, `filter(int from, int to)`, to the `Logger` class. Don’t forget to update your UML diagrams accordingly.
+
+This new method should:
+
+1. Iterate over all stored messages (we recommend using a for loop).
+2. Print out only those activities whose timestamps fall within the range defined by from and to (inclusive).
+3. For each matching activity, use the DateTime class to convert its timestamp (an integer) into a readable date-time string before printing.
 
 ##### Example output, where `from` is 1711936658 and `to` is 1712331675 
 ```
